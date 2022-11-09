@@ -1,0 +1,18 @@
+.calc-container {
+    border: 5px solid black;
+    padding: 10px;
+    margin: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;  
+}
+
+#display {
+    border: 1px solid black;
+    background-color: grey;
+    color: white;
+}
+
+.calc-container > button {
+    flex: 1;
+}
