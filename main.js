@@ -6,10 +6,15 @@ let operator; // get + in here
 
 numbers.addEventListener('click', function(e) {
     e.preventDefault();
-    console.log(num1, num2, operator);
     buttonValue = e.target.value;
     let node = document.createTextNode(buttonValue);
-    const newValue = calcDisplay.appendChild(node);
+    calcDisplay.appendChild(node);
+    if (operator = undefined) {
+        num1 = buttonValue;
+    } else {
+        num2 = buttonValue;
+    }
+    console.log(num1, num2, operator);
 });
 
 
@@ -18,48 +23,32 @@ function storedValue() {
     return parseFloat(grabValue);
 }
 
-const equalSign = document.getElementById('=');
-equalSign.addEventListener('click', runEquation)
+// const equalSign = document.getElementById('=');
+// equalSign.addEventListener('click', runEquation)
 
 //possible switch case with operator
-const doTheMath = (event) => {
+const operatorClickHandler = (event) => {
     const target = event.target.id;
-    num1 = storedValue();
-    if (target === '+') {
-        num2 = storedValue()
-        calcDisplay.textContent = num1;
-        return '+'
-    } else if (target === '-') {
-        num2 = storedValue();
-        calcDisplay.textContent = num1;
-        return '-'
-    } else if (target === '/') {
-        num2 = storedValue();
-        calcDisplay.textContent = num1;
-        return '/'
-    } else if (target === '*') {
-        num2 = storedValue();
-        calcDisplay.textContent = num1;
-        return '*'
-    } 
+    operator = target;
+    console.log(num1, num2, operator);
 }
 
-function runEquation(operator) {
-    switch (operator) {
-        case '+' :
-            return num1 + num2
-        case '-' :
-            return num1 - num2
-        case '/' :
-            return num1 / num2
-        case '*' :
-            return num1 * num2
-    }
-}
+// function runEquation(operator) {
+//     switch (operator) {
+//         case '+' :
+//             return num1 + num2
+//         case '-' :
+//             return num1 - num2
+//         case '/' :
+//             return num1 / num2
+//         case '*' :
+//             return num1 * num2
+//     }
+// }
 
 const fireKeys = document.getElementsByClassName('operator');
 for (let keys of fireKeys) {
-    keys.addEventListener('click', doTheMath);
+    keys.addEventListener('click', operatorClickHandler);
 }
 
 const clearDisplay = () => { 
@@ -70,6 +59,7 @@ const clearDisplay = () => {
 }
 
 clearDisplay();
+
 //TEST CASE
 //DESCRIPTION: Get 1 + 2 = 3
 
@@ -79,11 +69,11 @@ clearDisplay();
 
 //STEP 2: Click on 'button' +
 //EXPECATION: app 'grabs' 1 and stores it to be concatinated to following 'button push'
-//ACTUAL: nothing happens
+//ACTUAL: appears to work
 
 //STEP 3: Click on 'button' 2
 //EXPECTATION: 2 shows up on 'display'
-//ACTUAL: '1 2' shows up on display
+//ACTUAL: IT WORKS
 
 //STEP 4: Click on 'button' =
 //EXPECTATION: 3 shows up on 'display'
