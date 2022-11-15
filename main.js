@@ -73,8 +73,8 @@ clearDisplay();
 
 //STEP 3: Click on 'button' 2
 //EXPECTATION: 2 shows up on 'display'
-//ACTUAL: IT WORKS
+//ACTUAL: 12 shows up
 
 //STEP 4: Click on 'button' =
 //EXPECTATION: 3 shows up on 'display'
-//ACTUAL: nothing happens 
+//ACTUAL: nothing happens (equals button not set to a event listener)
