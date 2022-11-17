@@ -1,21 +1,36 @@
 const calcDisplay = document.getElementById('display');
 const numbers = document.querySelector('div.numbers');
-let num1; //get 1 inside here
-let num2; // get 2 inside here
-let operator; // get + in here
+let num1; 
+let num2; 
+let operator; 
 
-numbers.addEventListener('click', function(e) {
+numbers.addEventListener('click', firstNumber);
+function firstNumber(e) {
     e.preventDefault();
     buttonValue = e.target.value;
-    let node = document.createTextNode(buttonValue);
-    calcDisplay.appendChild(node);
-    if (operator = undefined) {
+    calcDisplay.innerText = buttonValue;
+    if (!operator && !num1) {
         num1 = buttonValue;
-    } else {
-        num2 = buttonValue;
-    }
-    console.log(num1, num2, operator);
-});
+    } else if (num1 >= 1) {
+        num1 = num1 + buttonValue;
+        calcDisplay.textContent = num1;
+    } else if (operator === '+' && num1 >= 1) {
+        buttonValue = num2;
+        calcDisplay.textContent = num2;
+    } 
+    
+    console.log('calcDisplay:', calcDisplay.textContent)
+    console.log('buttonValue:', buttonValue)
+    console.log('num1:', num1);
+    console.log('num2:', num2);
+    console.log('operator:', operator);
+    console.log('');  
+};
+
+const chooseOperator = (event) => {
+    const target = event.target.id;
+    operator = target;
+}
 
 
 function storedValue() {
@@ -26,55 +41,44 @@ function storedValue() {
 // const equalSign = document.getElementById('=');
 // equalSign.addEventListener('click', runEquation)
 
-//possible switch case with operator
-const operatorClickHandler = (event) => {
-    const target = event.target.id;
-    operator = target;
-    console.log(num1, num2, operator);
-}
 
-// function runEquation(operator) {
-//     switch (operator) {
-//         case '+' :
-//             return num1 + num2
-//         case '-' :
-//             return num1 - num2
-//         case '/' :
-//             return num1 / num2
-//         case '*' :
-//             return num1 * num2
-//     }
-// }
+
+function runEquation() {
+
+}
 
 const fireKeys = document.getElementsByClassName('operator');
 for (let keys of fireKeys) {
-    keys.addEventListener('click', operatorClickHandler);
+    keys.addEventListener('click', chooseOperator);
 }
 
 const clearDisplay = () => { 
     const clear = document.getElementById('clear');
     clear.addEventListener('click', () => {
         calcDisplay.textContent = '0';
+        num1 = undefined;
+        num2 = undefined;
+        operator = undefined;
     })
 }
 
 clearDisplay();
 
-//TEST CASE
-//DESCRIPTION: Get 1 + 2 = 3
+//Test Case 
+//Description: Get num1 to concatinate multiple numbers ('12' + 3)
 
-//STEP 1: Click on 'button' 1
-//EXPCTATION: 1 shows up in 'display'
-//ACTUAL: IT WORKS
+//Step 1: user presses 1
+//Expected: 1 shows up on display
+//Actual: IT WORKS
 
-//STEP 2: Click on 'button' +
-//EXPECATION: app 'grabs' 1 and stores it to be concatinated to following 'button push'
-//ACTUAL: appears to work
+//Step 2: user presses 2
+//Expected: 12 shows up on display
+//Actual: IT WORKS
 
-//STEP 3: Click on 'button' 2
-//EXPECTATION: 2 shows up on 'display'
-//ACTUAL: 12 shows up
+//Step 3: user presses +
+//Expected: + shows up in operator 
+//Actual: IT WORKS
 
-//STEP 4: Click on 'button' =
-//EXPECTATION: 3 shows up on 'display'
-//ACTUAL: nothing happens (equals button not set to a event listener)
+//Step 4: user presses 3
+//Expected: 3 shows up on display
+//Actual: 123 shows up on screen
