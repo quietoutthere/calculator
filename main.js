@@ -4,18 +4,17 @@ let num1;
 let num2; 
 let operator; 
 
-numbers.addEventListener('click', firstNumber);
-function firstNumber(e) {
+numbers.addEventListener('click', (e) => {
     e.preventDefault();
     buttonValue = e.target.value;
     calcDisplay.innerText = buttonValue;
     if (!operator && !num1) {
         num1 = buttonValue;
-    } else if (num1 >= 1) {
+    } else if (num1 >= 1 && !operator) {
         num1 = num1 + buttonValue;
         calcDisplay.textContent = num1;
-    } else if (operator === '+' && num1 >= 1) {
-        buttonValue = num2;
+    } else if ((operator === '+' || '-' || '/' || '*') && num1 >= 1) {
+        num2 = buttonValue;
         calcDisplay.textContent = num2;
     } 
     
@@ -25,7 +24,7 @@ function firstNumber(e) {
     console.log('num2:', num2);
     console.log('operator:', operator);
     console.log('');  
-};
+});
 
 const chooseOperator = (event) => {
     const target = event.target.id;
@@ -38,14 +37,11 @@ function storedValue() {
     return parseFloat(grabValue);
 }
 
-// const equalSign = document.getElementById('=');
-// equalSign.addEventListener('click', runEquation)
+const equalSign = document.getElementById('=');
+equalSign.addEventListener('click', () => {
+    calcDisplay.textContent = parseInt(num1) + parseInt(num2);
+})
 
-
-
-function runEquation() {
-
-}
 
 const fireKeys = document.getElementsByClassName('operator');
 for (let keys of fireKeys) {
@@ -65,7 +61,7 @@ const clearDisplay = () => {
 clearDisplay();
 
 //Test Case 
-//Description: Get num1 to concatinate multiple numbers ('12' + 3)
+//Description: Equal Sign concatinates num1 & num2
 
 //Step 1: user presses 1
 //Expected: 1 shows up on display
@@ -81,4 +77,8 @@ clearDisplay();
 
 //Step 4: user presses 3
 //Expected: 3 shows up on display
-//Actual: 123 shows up on screen
+//Actual: IT WORKS
+
+//Step 5: user presses equal sign
+//Expected: 15 shows up on screen
+//Actual: Nothing Happens
