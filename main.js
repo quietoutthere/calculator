@@ -2,7 +2,10 @@ const calcDisplay = document.getElementById('display');
 const numbers = document.querySelector('div.numbers');
 let num1; 
 let num2; 
-let operator; 
+let operator;
+let operator2;
+let operator3;
+let operator4; 
 
 numbers.addEventListener('click', (e) => {
     e.preventDefault();
@@ -13,22 +16,33 @@ numbers.addEventListener('click', (e) => {
     } else if (num1 >= 1 && !operator) {
         num1 = num1 + buttonValue;
         calcDisplay.textContent = num1;
-    } else if ((operator === '+' || '-' || '/' || '*') && num1 >= 1) {
+    }  else if ((!!operator) && num1 >= 1 && num2 >= 1) {
+        num2 = num2 + buttonValue;
+        calcDisplay.textContent = num2;
+    } else if ((!!operator) && num1 >= 1) {
         num2 = buttonValue;
         calcDisplay.textContent = num2;
-    } 
-    
+    }
     console.log('calcDisplay:', calcDisplay.textContent)
     console.log('buttonValue:', buttonValue)
     console.log('num1:', num1);
     console.log('num2:', num2);
     console.log('operator:', operator);
+    console.log('operator2:', operator2);
+    console.log('operator3:', operator3);
+    console.log('operator4:', operator4);
     console.log('');  
 });
 
 const chooseOperator = (event) => {
     const target = event.target.id;
-    operator = target;
+    if (!operator) {
+        operator = target;
+    } else if ((!!operator) && (!!operator2)) {
+        operator3 = target;
+    } else if (operator === '+' || '-' || '/' || '*') {
+        operator2 = target;
+    } 
 }
 
 
