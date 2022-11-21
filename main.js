@@ -57,14 +57,9 @@ const chooseOperator = (event) => {
     } 
 }
 
-function storedValue() {
-    const grabValue = calcDisplay.textContent; 
-    return parseFloat(grabValue);
-}
-
 const equalSign = document.getElementById('=');
 equalSign.addEventListener('click', () => {
-    calcDisplay.textContent = total; 
+    calcDisplay.textContent = total;
     num1 = undefined;
     num2 = undefined;
     num3 = undefined;
@@ -91,42 +86,40 @@ const clearDisplay = () => {
 clearDisplay();
 
 //Test Case 
-//Description: get equals sign to fire off numbers and operators
+//Description: get equals sign to run equations
 
-//Step 1: user presses 4
+//Step 1: User presses 1
 //Expected: 1 shows up on display
 //Actual: IT WORKS
 
-//Step 2: user presses +
+//Step 2: User presses +
 //Expected: + shows up in operator
-//ActuaL: IT WORKS
+//Actual: It WORKS
 
-// Step 3: user presses 3
+//Step 3: User presses 2
 //Expected: 2 shows up on display
-//Actual: It works
-
-//Step 4: user pesses *
-//Expected: - shows up in operator 2
-//Actual: It works
-
-//Step 5: user presses 7
-//Expected: 7 shows up on screen
 //Actual: IT WORKS
 
+//Step 4: User presses -
+//Expected: 3 shows up on screen
+//Actual: 1+3 shows up on screen
+
+//Step 5: User presses 3
+//Expected: 3 shows up on screen
+//Actual: IT WORKS
+
+//Step 6: User presses /
+//Expected: / shows up in operator
+//Actual: IT WORKS
+
+//Step 7: User presses 4
+//Expected: 4 shows up on screen
+//Actual: IT WORKS
+
+//Step 8: User presses *
+//Expected: 0 shows up on screen
+//Actual: 1+2-3/4 shows up on screen
 
 
-//  else if (num1 >= 1 && !operator) {
-//     num1 = num1 + buttonValue;
-//     calcDisplay.textContent = num1;
-// } else if (!!operator && !!operator2 && num1 >=1 && num2>=1 && num3>=1) {
-//     num3 = num3 + buttonValue;
-//     calcDisplay.textContent = num3;
-// }  else if(!!operator && !!operator2 && num1 >=1 && num2>=1) {
-//     num3 = buttonValue;
-//     calcDisplay.textContent = num3;
-// } else if (!!operator && num1 >= 1 && num2 >= 1) {
-//     num2 = num2 + buttonValue;
-//     calcDisplay.textContent = num2;
-// } else if (!!operator && num1 >= 1) {
-//     num2 = buttonValue;
-//     calcDisplay.textContent = num2;
+
+
