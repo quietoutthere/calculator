@@ -8,10 +8,15 @@ numbers.addEventListener('click', (e) => {
     e.preventDefault();
     buttonValue = e.target.value;
     calcDisplay.innerText = buttonValue;
+    debugger;
     if (!operator && !num1) {
         num1 = buttonValue;
         calcDisplay.textContent = buttonValue;
-    }  else if (!operator && !num1) {
+    } else if (operator === '=' && !!num1) {
+        calcDisplay.textContent = buttonValue;
+        num1 = buttonValue;
+        operator = undefined;
+    } else if (!operator && !num1) {
         num1 = buttonValue;
     } else if (!!num2) {
         num2 = num2 + buttonValue;
@@ -49,11 +54,10 @@ const chooseOperator = (event) => {
             calcDisplay.textContent = num1;
         } 
         operator = target
+        debugger;
         if (target === '=') {
             calcDisplay.textContent = num1
-            num1 = undefined;
             num2 = undefined;
-            operator = undefined;
         } 
     } else {
         operator = target;

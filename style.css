@@ -1,18 +1,37 @@
-.calc-container {
-    border: 5px solid black;
-    padding: 10px;
-    margin: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;  
+@font-face {
+    font-family: 'arcade';
+    src: url(fonts/PublicPixel-z84yD.ttf);
 }
 
-#display {
+body {
+    background-color: black;
+}
+
+h1, h5 {
+    color: white;
+    text-align: center;
+    font-family: 'arcade', sans-serif;
+}
+
+div.calc-container {
+    border: 5px solid white;
+
+    display: flex;
+    flex-direction: column;
+      
+}
+
+button {
+    margin: auto;
+}
+
+
+div#display {
     border: 1px solid black;
     background-color: grey;
     color: white;
 }
 
-.calc-container > button {
-    flex: 1;
+div.memory {
+    color: white;
 }
