@@ -42,19 +42,19 @@ const chooseOperator = (event) => {
         if (operator === '+') {
             num1 = parseInt(num1) + parseInt(num2);
             num2 = undefined;
-            calcDisplay.textContent = num1;
+            calcDisplay.textContent = +num1.toFixed(3);
         } if (operator === '-') {
             num1 = parseInt(num1) - parseInt(num2);
             num2 = undefined;
-            calcDisplay.textContent = num1;
+            calcDisplay.textContent = +num1.toFixed(3);
         } if (operator === '/') {
             num1 = parseInt(num1) / parseInt(num2);
             num2 = undefined;
-            calcDisplay.textContent = num1;
+            calcDisplay.textContent = +num1.toFixed(3);
         } if (operator === '*') {
             num1 = parseInt(num1) * parseInt(num2);
             num2 = undefined;
-            calcDisplay.textContent = num1;
+            calcDisplay.textContent = +num1.toFixed(3);
         } 
         operator = target;
         if (target === 'equal') {
