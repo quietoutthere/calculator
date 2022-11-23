@@ -3,12 +3,11 @@ let num2;
 let operator;
 
 const calcDisplay = document.getElementById('display');
-const numbers = document.querySelectorAll('.number');
+const numbers = document.querySelectorAll('button.number');
 numbers.addEventListener('click', (e) => {
     e.preventDefault();
     buttonValue = e.target.value;
     calcDisplay.innerText = buttonValue;
-    debugger;
     if (!operator && !num1) {
         num1 = buttonValue;
         calcDisplay.textContent = buttonValue;
@@ -53,8 +52,7 @@ const chooseOperator = (event) => {
             num2 = undefined;
             calcDisplay.textContent = num1;
         } 
-        operator = target
-        debugger;
+        operator = target;
         if (target === '=') {
             calcDisplay.textContent = num1
             num2 = undefined;
