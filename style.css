@@ -7,9 +7,12 @@ body {
     background-color: black;
 }
 
-button {
-    size: 3px;
-}
+/* .number {
+    color: white;
+    border: 1px solid white;
+
+} */
+
 h1, h5 {
     color: white;
     text-align: center;

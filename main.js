@@ -3,7 +3,7 @@ let num2;
 let operator;
 
 const calcDisplay = document.getElementById('display');
-const numbers = document.querySelector('div.numbers');
+const numbers = document.querySelectorAll('.number');
 numbers.addEventListener('click', (e) => {
     e.preventDefault();
     buttonValue = e.target.value;
@@ -80,4 +80,3 @@ const clearDisplay = () => {
 }
 
 clearDisplay();
-
