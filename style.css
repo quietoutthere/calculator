@@ -35,7 +35,7 @@ button {
   
 }
 
-button.equal {
+button#equal {
     width: 152px;
 }
 

@@ -4,36 +4,40 @@ let operator;
 
 const calcDisplay = document.getElementById('display');
 const numbers = document.querySelectorAll('button.number');
-numbers.addEventListener('click', (e) => {
-    e.preventDefault();
-    buttonValue = e.target.value;
-    calcDisplay.innerText = buttonValue;
-    if (!operator && !num1) {
-        num1 = buttonValue;
-        calcDisplay.textContent = buttonValue;
-    } else if (operator === '=' && !!num1) {
-        calcDisplay.textContent = buttonValue;
-        num1 = buttonValue;
-        operator = undefined;
-    } else if (!operator && !num1) {
-        num1 = buttonValue;
-    } else if (!!num2) {
-        num2 = num2 + buttonValue;
-        calcDisplay.textContent = num2;
-    } else if(!!operator && !!num1) {
-        num2 = buttonValue;
-        calcDisplay.textContent = num2;
-    } else if (!!num1) {
-        num1 = num1 + buttonValue;
-        calcDisplay.textContent = num1;
-    } else if (!!operator && !num1) {
-        num1 = buttonValue;
-        calcDisplay.textContent = num1;
-    } 
+numbers.forEach((btn) => {;
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        buttonValue = e.target.value;
+        calcDisplay.innerText = buttonValue;
+        debugger;
+        if (!operator && !num1) {
+            num1 = buttonValue;
+            calcDisplay.textContent = buttonValue;
+        } else if (operator === '=' && !!num1) {
+            calcDisplay.textContent = buttonValue;
+            num1 = buttonValue;
+            operator = undefined;
+        } else if (!operator && !num1) {
+            num1 = buttonValue;
+        } else if (!!num2) {
+            num2 = num2 + buttonValue;
+            calcDisplay.textContent = num2;
+        } else if(!!operator && !!num1) {
+            num2 = buttonValue;
+            calcDisplay.textContent = num2;
+        } else if (!!num1) {
+            num1 = num1 + buttonValue;
+            calcDisplay.textContent = num1;
+        } else if (!!operator && !num1) {
+            num1 = buttonValue;
+            calcDisplay.textContent = num1;
+        } 
+    })
 });
 
 const chooseOperator = (event) => {
     const target = event.target.id;
+    debugger;
     if (!!operator && !!num2) {
         if (operator === '+') {
             num1 = parseInt(num1) + parseInt(num2);
@@ -53,7 +57,7 @@ const chooseOperator = (event) => {
             calcDisplay.textContent = num1;
         } 
         operator = target;
-        if (target === '=') {
+        if (target === 'equal') {
             calcDisplay.textContent = num1
             num2 = undefined;
         } 
@@ -65,6 +69,7 @@ const chooseOperator = (event) => {
 const fireKeys = document.getElementsByClassName('operator');
 for (let keys of fireKeys) {
     keys.addEventListener('click', chooseOperator);
+    console.log(keys);
 }
 
 const clearDisplay = () => { 
