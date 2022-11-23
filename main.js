@@ -58,7 +58,7 @@ const chooseOperator = (event) => {
         } 
         operator = target;
         if (target === 'equal') {
-            calcDisplay.textContent = num1
+            calcDisplay.textContent = +num1.toFixed(3);
             num2 = undefined;
         } 
     } else {
@@ -69,7 +69,6 @@ const chooseOperator = (event) => {
 const fireKeys = document.getElementsByClassName('operator');
 for (let keys of fireKeys) {
     keys.addEventListener('click', chooseOperator);
-    console.log(keys);
 }
 
 const clearDisplay = () => { 
