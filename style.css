@@ -4,8 +4,11 @@
 }
 
 body {
+    text-align: 35%;
+    margin-left: 35%;
     background-color: black;
 }
+
 h3 {
     color: white;
     font-family: 'arcade', sans-serif;

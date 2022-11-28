@@ -1,19 +1,23 @@
 let num1; 
 let num2; 
 let operator;
+let hasDecimal = false;
 
 const calcDisplay = document.getElementById('display');
 const numbers = document.querySelectorAll('button.number');
+
+//make this eventListener easier to read
 numbers.forEach((btn) => {;
     btn.addEventListener('click', (e) => {
         e.preventDefault();
         buttonValue = e.target.value;
+        if (buttonValue === '.' && hasDecimal) return
+        if (buttonValue === '.' && !hasDecimal) hasDecimal =  true;
         calcDisplay.innerText = buttonValue;
-        debugger;
         if (!operator && !num1) {
             num1 = buttonValue;
             calcDisplay.textContent = buttonValue;
-        } else if (operator === '=' && !!num1) {
+        } else if (operator === 'equal' && !!num1) {
             calcDisplay.textContent = buttonValue;
             num1 = buttonValue;
             operator = undefined;
@@ -35,35 +39,32 @@ numbers.forEach((btn) => {;
     })
 });
 
+//add function to other operators
 const chooseOperator = (event) => {
     const target = event.target.id;
-    debugger;
-    if (!!operator && !!num2) {
+    if (operator && !!num2) {
         if (operator === '+') {
-            num1 = parseInt(num1) + parseInt(num2);
+            num1 = parseFloat(num1) + parseFloat(num2);
             num2 = undefined;
-            calcDisplay.textContent = +num1.toFixed(3);
         } if (operator === '-') {
-            num1 = parseInt(num1) - parseInt(num2);
+            num1 = num1 - num2;
             num2 = undefined;
-            calcDisplay.textContent = +num1.toFixed(3);
         } if (operator === '/') {
-            num1 = parseInt(num1) / parseInt(num2);
-            num2 = undefined;
-            calcDisplay.textContent = +num1.toFixed(3);
+            num1 = num1 / num2;
+            num2 = undefined;;
         } if (operator === '*') {
-            num1 = parseInt(num1) * parseInt(num2);
+            num1 = num1 * num2;
             num2 = undefined;
-            calcDisplay.textContent = +num1.toFixed(3);
         } 
         operator = target;
         if (target === 'equal') {
-            calcDisplay.textContent = +num1.toFixed(3);
             num2 = undefined;
         } 
+        setDisplay(num1);
     } else {
         operator = target;
     }
+    hasDecimal = false;
 }
 
 const fireKeys = document.getElementsByClassName('operator');
@@ -71,14 +72,19 @@ for (let keys of fireKeys) {
     keys.addEventListener('click', chooseOperator);
 }
 
-const clearDisplay = () => { 
+const clearCalc = () => { 
     const clear = document.getElementById('clear');
     clear.addEventListener('click', () => {
         calcDisplay.textContent = '0';
         num1 = undefined;
         num2 = undefined;
         operator = undefined;
+        hasDecimal = false;
     })
 }
 
-clearDisplay();
+const setDisplay = (displayNum) => {
+    calcDisplay.textContent = parseFloat(displayNum.toFixed(3));
+}
+
+clearCalc();
