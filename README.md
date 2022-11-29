@@ -6,7 +6,21 @@ Use it here [here](https://quietoutthere.github.io/calculator/)
 
 ## Description
 
-This was a very mentally taxing, yet, rewarding project to complete. I am quite proud of the logic I came up with on my main.js. I really had to focus on conceptualizing statements being 'truthy' / 'falsey' in order for the project to come together. The stylesheet is basic and has an analog / 80s arcade feel.
+This was a mentally taxing yet rewarding project to complete. However, I approached this project with a more systematic game plan which helped in its completion.  I started the project by simply drawing out the layout of the calculator on a sheet of paper. I then wrote out the processes of how one would use a calculator:
+
+Example
+
+-user enters 1 (1 shows up on screen)
+
+-user presses + (1 stays on screen, + is stored in var)
+
+-user presses 2 (2 shows up on screen, 1 is store in var)
+
+-user presses = (3 shows up on screen)
+
+These test cases really helped me break down my logic and start the conceptualization of the project with a solid foundation.
+One tool I heavily relied on was the use of an undefined variable, that was used as a malleable container that had the ability to change with each button push. This concept gave me the use of continuous operations, and the calculator has the ability to run operations an infinite number.
+
 
 ## Author
 Evan Oyster - Full Stack Developer
