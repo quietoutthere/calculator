@@ -6,7 +6,6 @@ let hasDecimal = false;
 const calcDisplay = document.getElementById('display');
 const numbers = document.querySelectorAll('button.number');
 
-//make this eventListener easier to read
 numbers.forEach((btn) => {;
     btn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -39,7 +38,6 @@ numbers.forEach((btn) => {;
     })
 });
 
-//add function to other operators
 const chooseOperator = (event) => {
     const target = event.target.id;
     if (operator && !!num2) {
