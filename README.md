@@ -23,5 +23,5 @@ One tool I heavily relied on was the use of an undefined variable, that was used
 
 
 ## Author
-Evan Oyster - Front End Developer
+Evan Oyster - Web Developer
 [LinkedIn](https://www.linkedin.com/feed/)
