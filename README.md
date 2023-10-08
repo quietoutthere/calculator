@@ -1,6 +1,6 @@
 # Simple Calculator
 
-Use it here [here](https://quietoutthere.github.io/calculator/)
+Use it [here](https://quietoutthere.github.io/calculator/)
 
 ![calculator2](https://user-images.githubusercontent.com/108839805/204379159-b8b5ded5-b079-4e41-9759-26e9d2a11c2c.png)
 
